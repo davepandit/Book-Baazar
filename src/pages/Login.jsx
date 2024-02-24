@@ -4,23 +4,21 @@ import Form from 'react-bootstrap/Form';
 import { useFirebase } from '../context/Firebase';
 import { useState } from 'react';
 
+const Login = () => {
+    const firebase = useFirebase()
+    console.log(firebase)
+    const [email , setEmail] = useState("")
+    const [password , setpassword] = useState("")
 
-const Register = () => {
-  //establishing the link between  the component and the context
-  const firebase = useFirebase()
-  console.log(firebase)
-  const [email , setEmail] = useState("")
-  const [password , setpassword] = useState("")
-
-
-  //to handle submit 
-  const handleSubmit = async(e) =>{
+    //to handle submit 
+    const handleSubmit = async(e) =>{
     e.preventDefault()
-    console.log("signing up an user")
-    const result = await firebase.signUpUserWithEmailAndPassword(email , password)
-    console.log("sign up successful" , result)
+    console.log("signing in an user")
+    const result = await firebase.signInUserWithEmailAndPassword(email , password)
+    console.log("sign in successful" , result)
+    
+    }
 
-  }
 
 
   return (
@@ -48,7 +46,7 @@ const Register = () => {
               type="password" placeholder="Password" />
             </Form.Group>
             <Button variant="primary" type="submit">
-              Create Account
+              LogIn
             </Button>
         </Form>
       </div>
@@ -56,4 +54,5 @@ const Register = () => {
   )
 }
 
-export default Register
+
+export default Login
