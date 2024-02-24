@@ -19,7 +19,9 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig)
 
 //creating a custom hook to connect the components to the context
-const useFirebase = useContext(FirebaseContext)
+const useFirebase = () =>{
+    useContext(FirebaseContext)
+}
 
 //context provider
 const FirebaseContextProvider = (props)=>{
