@@ -5,6 +5,7 @@ import Login from './pages/Login';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from './components/NavBar';
 import ListBooks from './pages/ListBooks';
+import Home from './pages/Home';
 function App() {
   const [count, setCount] = useState(0)
 
@@ -13,7 +14,7 @@ function App() {
     <NavBar/>
     <div>
         <Routes>
-          <Route path='/' element={<h1>Home</h1>}/>
+          <Route path='/' element={<Home/>}/>
           <Route path='/register' element= {<Register />}/>
           <Route path='/login' element={<Login/>}/>
           <Route path='/book/list' element={<ListBooks/>}/>
